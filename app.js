@@ -31,8 +31,8 @@ async function handleLabelRequest(req,res){
             'Content-Type': 'application/x-www-form-urlencoded'
         },
         body: fullLabel
-    });
-    const blob = response.blob;
+        });
+    const blob = await response.json();
     res.send(blob);}
     catch(error){
         console.log(error)
