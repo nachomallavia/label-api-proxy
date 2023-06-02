@@ -32,7 +32,8 @@ async function handleLabelRequest(req,res){
         },
         body: fullLabel
     });
-    res.send(response);}
+    const blob = response.blob;
+    res.send(blob);}
     catch(error){
         console.log(error)
     }
