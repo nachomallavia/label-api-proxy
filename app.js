@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 async function handleLabelRequest(req,res){
     console.log('Trying to fetch label')
     try{let fullLabel = req.body;
+        console.log(fullLabel)
     const response = await fetch('http://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/', {
         method: 'POST',
         headers: {
@@ -32,7 +33,8 @@ async function handleLabelRequest(req,res){
         },
         body: fullLabel
         });
-        console.log(response)
+        const blob = await response.blob()
+        console.log(blob)
     res.send(response);}
     catch(error){
         console.log(error)
