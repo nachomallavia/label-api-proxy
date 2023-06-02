@@ -32,7 +32,7 @@ async function handleLabelRequest(req,res){
         },
         body: fullLabel
         });
-
+        console.log(response)
     res.send(response);}
     catch(error){
         console.log(error)
