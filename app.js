@@ -32,8 +32,8 @@ async function handleLabelRequest(req,res){
         },
         body: fullLabel
         });
-    const blob = await response.json();
-    res.send(blob);}
+
+    res.send(response);}
     catch(error){
         console.log(error)
     }
