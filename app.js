@@ -7,7 +7,8 @@ const https = require('https');
 const fetch = require('node-fetch');
 
 async function handleLabelRequest(req,res){
-    let fullLabel = req.body;
+    console.log('Trying to fetch label')
+    try{let fullLabel = req.body;
     const response = await fetch('http://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/', {
         method: 'POST',
         headers: {
@@ -15,7 +16,10 @@ async function handleLabelRequest(req,res){
         },
         body: fullLabel
     });
-    res.send(response);
+    res.send(response);}
+    catch(error){
+        console.log(error)
+    }
 }
 
 app.get('/', (req, res) => {
