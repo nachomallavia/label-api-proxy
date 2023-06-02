@@ -7,7 +7,7 @@ const https = require('https');
 app.get('/', (req, res) => {
     res.send('Hello World from RENDER!')
   })
-app.get('/check', ()=>{
+app.get('/check', (req,res)=>{
     res.send('Hola Hola')
 })
 app.listen(port, () => {
