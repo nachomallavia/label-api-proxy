@@ -4,6 +4,7 @@ const port = 8080;
 const http =require('http');
 const https = require('https');
 
+const bodyParser = require('body-parser')
 const fetch = require('node-fetch');
 
 app.use((req, res, next) => {
@@ -26,7 +27,7 @@ app.use((req, res, next) => {
 async function handleLabelRequest(req,res){
     console.log('Trying to fetch label')
     try{
-        let fullLabel = req.body.fullLabel;
+        let fullLabel = req.body;
 
 
         console.log(`fullLabel is ${fullLabel}`)
@@ -51,7 +52,7 @@ app.get('/', (req, res) => {
 app.get('/check', (req,res)=>{
     res.send('Hola Hola')
 })
-app.post('/label',handleLabelRequest);
+app.post('/label',bodyParser.json(),handleLabelRequest);
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
