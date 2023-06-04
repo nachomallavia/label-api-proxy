@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 async function handleLabelRequest(req,res){
     console.log('Trying to fetch label')
     try{
-        let fullLabel = req.body.toString();
+        let fullLabel = JSON.stringify(req.body)
 
 
         console.log(`fullLabel is ${fullLabel}`)
