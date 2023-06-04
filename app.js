@@ -25,9 +25,10 @@ app.use((req, res, next) => {
 
 async function handleLabelRequest(req,res){
     console.log('Trying to fetch label')
-    try{let fullLabel = req.body;
-        console.log(`-----///////----- Request is: -----///////-----`,'color:green')
-        console.log(req)
+    try{
+        let fullLabel = req.body;
+
+
         console.log(`fullLabel is ${fullLabel}`)
     const response = await fetch('http://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/', {
         method: 'POST',
