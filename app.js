@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
 app.get('/check', (req,res)=>{
     res.send('Hola Hola')
 })
-app.post('/label',bodyParser.json(),handleLabelRequest);
+app.post('/label',bodyParser.urlencoded(),handleLabelRequest);
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
