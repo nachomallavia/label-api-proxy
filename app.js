@@ -44,9 +44,10 @@ async function handleLabelRequest(req,res){
 
         // console.log(blob)
         // res.body = blob;
-        res.type(blob.type);
+        // res.type(blob.type);
+        res.type('arraybuffer')
         console.log(blob)
-        res.send(response.body);
+        res.send(buffer);
 
     }
     catch(error){
