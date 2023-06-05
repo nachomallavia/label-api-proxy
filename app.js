@@ -32,7 +32,7 @@ async function handleLabelRequest(req,res){
 
         console.log(`fullLabel is ${fullLabel}`)
         console.dir(req.body)
-    const response = await fetch('http://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/', {
+        const response = await fetch('http://api.labelary.com/v1/printers/8dpmm/labels/4x6/0/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -41,7 +41,10 @@ async function handleLabelRequest(req,res){
         });
         const blob = await response.blob()
         console.log(blob)
-    res.send(response);}
+        res.body = blob;
+        // res.send(response);
+        return res;
+    }
     catch(error){
         console.log(error)
     }
