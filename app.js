@@ -39,11 +39,11 @@ async function handleLabelRequest(req,res){
         },
         body: fullLabel
         });
-        // const blob = await response.blob()
+        const blob = await response.blob()
         // console.log(blob)
         // res.body = blob;
-        console.log(response.body)
-        res.send(response.body);
+        console.log(blob)
+        res.send(blob);
 
     }
     catch(error){
