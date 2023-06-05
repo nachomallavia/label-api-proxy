@@ -45,9 +45,13 @@ async function handleLabelRequest(req,res){
         // console.log(blob)
         // res.body = blob;
         // res.type(blob.type);
+        const newBlob = new Blob(buffer,{
+            type: 'image/png'
+        })
         res.type('arraybuffer')
-        console.log(blob)
-        res.send(buffer);
+        console.log(blob);
+        console.log(newBlob)
+        res.send(newBlob);
 
     }
     catch(error){
