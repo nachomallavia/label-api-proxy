@@ -1,5 +1,5 @@
 const express = require('express');
-const Blob = require('node:buffer').Blob;
+
 const app = express();
 const port = 8080;
 const http =require('http');
@@ -43,16 +43,13 @@ async function handleLabelRequest(req,res){
         const blob = await response.blob();
         let buffer = await blob.arrayBuffer();
 
-        // console.log(blob)
-        // res.body = blob;
-        // res.type(blob.type);
-        const newBlob = new Blob(buffer,{
-            type: 'image/png'
-        })
-        res.type('arraybuffer')
+        console.log(blob)
+        res.body = blob;
+        res.type(blob.type);
+        
+
         console.log(blob);
-        console.log(newBlob)
-        res.send(newBlob);
+     
 
     }
     catch(error){
