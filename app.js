@@ -42,7 +42,7 @@ async function handleLabelRequest(req,res){
         const blob = await response.blob()
         console.log(blob)
         res.body = blob;
-        res.send(blob);
+        res.json(blob);
         return res;
     }
     catch(error){
