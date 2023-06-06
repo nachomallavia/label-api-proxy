@@ -49,7 +49,7 @@ async function handleLabelRequest(req,res){
         // console.log(blob);
 
 
-        res.send(blob)
+        res.send(response)
         
 
 
