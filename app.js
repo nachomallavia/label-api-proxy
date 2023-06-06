@@ -43,9 +43,9 @@ async function handleLabelRequest(req,res){
         const blob = await response.blob();
         let buffer = await blob.arrayBuffer();
 
-        console.log(blob.type)
-        console.log(buffer)
-        console.log(blob);
+        // console.log(blob.type)
+        // console.log(buffer)
+        // console.log(blob);
 
         res.type(blob.type);
         res.send(buffer)
