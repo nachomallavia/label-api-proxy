@@ -47,9 +47,9 @@ async function handleLabelRequest(req,res){
         const newBlob = blob.slice();
         // console.log(buffer)
         // console.log(blob);
-
+        console.log(blob.size)
         res.type(blob.type)
-        res.send(newBlob)
+        res.send(response.body)
         
 
 
