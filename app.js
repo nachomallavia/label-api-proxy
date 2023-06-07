@@ -50,7 +50,7 @@ async function handleLabelRequest(req,res){
         });
 
         
-        const blob = await response.blob();
+        const blob = await response.json();
         // console.log(blob)
         let newBlob = new Blob([blob])
         console.log(newBlob)
