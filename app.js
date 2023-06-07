@@ -8,6 +8,9 @@ const https = require('https');
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch');
 
+app.set('view engine', 'ejs');
+let currentLabel="asdlkngljbggg";
+
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     res.header(
@@ -66,7 +69,7 @@ async function handleLabelRequest(req,res){
 }
 
 app.get('/', (req, res) => {
-    res.send('Hello World from RENDER!')
+    res.render('index',{label:currentLabel})
   })
 app.get('/check', (req,res)=>{
     res.send('Hola Hola')
