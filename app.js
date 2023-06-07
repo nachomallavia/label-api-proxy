@@ -40,18 +40,23 @@ async function handleLabelRequest(req,res){
         },
         body: fullLabel
         });
-        const blob = await response.blob();
-        let buffer = await blob.arrayBuffer();
 
-        let text = await blob.text();
-        const newBlob = blob.slice();
-        console.log(buffer);
-        console.log(blob);
-        console.log(blob.size);
-        console.log(response.body);
         
-        res.type(blob.type)
-        res.send(response.body)
+        const blob = await response.blob();
+
+
+       
+
+        const myResponse = new Response(blob,{
+            status: 200,
+            headers:{
+                'content-type': blob.type,
+                'content-length': blob.size
+            }
+
+        })
+
+        res.send(myResponse)
         
 
 
