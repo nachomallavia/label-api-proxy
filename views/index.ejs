@@ -14,9 +14,10 @@
         </div>
         
     </div>
-    <script blob= <%=label%> defer>
-
-        console.log(blob)
+    <% var test = 101; %>
+    <script defer>
+        var getTest = <%= test  %>
+        console.log(getTest)
     </script>
 </body>
 </html>
