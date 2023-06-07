@@ -47,16 +47,13 @@ async function handleLabelRequest(req,res){
 
        
 
-        const myResponse = new Response(blob,{
-            status: 200,
-            headers:{
-                'content-type': blob.type,
-                'content-length': blob.size
-            }
-
+        
+        res.set({
+            'content-type': blob.type,
+            'content-length': blob.size
         })
-
-        res.send(myResponse)
+        res.status(200)
+        res.send(blob)
         
 
 
