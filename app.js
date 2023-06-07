@@ -5,11 +5,12 @@ const port = 8080;
 const http =require('http');
 const https = require('https');
 
+
 const bodyParser = require('body-parser')
 const fetch = require('node-fetch');
 
 app.set('view engine', 'ejs');
-let currentLabel="asdlkngljbggg";
+let currentLabelBlob;
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
@@ -47,7 +48,8 @@ async function handleLabelRequest(req,res){
         
         const blob = await response.blob();
         console.log({blob});
-
+        currentLabelBlob = blob;
+        
        
 
         
@@ -69,7 +71,7 @@ async function handleLabelRequest(req,res){
 }
 
 app.get('/', (req, res) => {
-    res.render('index',{label:currentLabel})
+    res.render('index',{label:currentLabelBlob})
   })
 app.get('/check', (req,res)=>{
     res.send('Hola Hola')
