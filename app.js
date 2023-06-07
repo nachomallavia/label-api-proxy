@@ -10,7 +10,10 @@ const bodyParser = require('body-parser')
 const fetch = require('node-fetch');
 
 app.set('view engine', 'ejs');
-let currentLabel;
+let currentLabel={
+    blob:'',
+    url:''
+};
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
@@ -50,7 +53,7 @@ async function handleLabelRequest(req,res){
         console.log({blob});
         currentLabel.blob = blob;
         
-        currentLabel.url=URL.createObjectURL(blob);
+        currentLabel.url= URL.createObjectURL(blob);
 
     
         
