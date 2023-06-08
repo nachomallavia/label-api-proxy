@@ -66,7 +66,7 @@ async function handleLabelRequest(req,res){
             'content-length': blob.size
         })
         res.status(200)
-        res.send(blob)
+        res.send(newBlob)
         
 
 
