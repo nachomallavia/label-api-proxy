@@ -17,10 +17,10 @@
     <% var lbl = label; %>
 
     <script defer>
-        let labelData = <%= lbl  %>
+        let labelData = <%= lbl.blob  %>
         let container = document.getElementById('label-container');
         let newImg = document.createElement('img');
-				newImg.src = URL.createObjectURL(labelData.blob);
+				newImg.src = URL.createObjectURL(labelData);
 				newImg.style['maxWidth'] = '400px';
         container.replaceChildren(newImg);
     </script>
