@@ -9,15 +9,20 @@
 <body>
     <div class="main">
         <h1>Current Label:</h1>
-        <div>
+        <div id="label-container">
             <!-- <%- console.log(label) %> -->
         </div>
         
     </div>
-    <% var test = label; %>
+    <% var lbl = label; %>
+
     <script defer>
-        var getTest = <%= test  %>
-        console.log(getTest);
+        let labelData = <%= lbl  %>
+        let container = document.getElementById('label-container');
+        let newImg = document.createElement('img');
+				newImg.src = URL.createObjectURL(labelData.blob);
+				newImg.style['maxWidth'] = '400px';
+        container.replaceChildren(newImg);
     </script>
 </body>
 </html>
