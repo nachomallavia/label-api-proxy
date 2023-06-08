@@ -54,6 +54,7 @@ async function handleLabelRequest(req,res){
         const buffer = await blob.arrayBuffer();
         let newBlob = new Blob([buffer],{type:blob.type})
         console.log(newBlob)
+        currentLabel.blob = newBlob;
         currentLabel.url=  URL.createObjectURL(newBlob);
 
         console.log(currentLabel)
